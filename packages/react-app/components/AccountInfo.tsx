@@ -75,7 +75,7 @@ export function AccountInfo() {
         : baseCurrency === BaseCurrency.EUR
           ? 1.0 / eurUsdPrice.value
           : baseCurrency === BaseCurrency.ETH
-            ? 1.0 / ethUsdPrice.value
+          ? 1.0 / (ethUsdPrice).value
             : 1.0 / celoUsdPrice.value
     );
 

@@ -10,12 +10,12 @@ export default function Footer() {
 
   return (
     <footer style={{ textAlign: "center" }}>
-      <Link href={githubLink} target="_blank">
+      {/* <Link href={githubLink} target="_blank">
         <Github style={{ width: "40px", margin: "5px" }} />
       </Link>
       <Link href={discordLink} target="_blank">
         <Discord style={{ width: "40px", margin: "5px" }} />
-      </Link>
+      </Link> */}
     </footer>
   );
 }

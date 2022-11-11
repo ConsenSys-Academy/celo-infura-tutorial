@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Tabs, Tab, Typography, Box } from "@mui/material";
-import deployedContracts from "@local-contracts/deployments/hardhat_contracts.json";
+// import deployedContracts from "@local-contracts/deployments/hardhat_contracts.json";
 
 // To use Truffle, Uncomment the below line and comment the hardhat_contracts.json line above
-// import deployedContracts from "@local-truffle/build/contracts/Greeter.json";
+import deployedContracts from "@local-truffle/build/contracts/Greeter.json";
 
 import { useCelo } from "@celo/react-celo";
 import { AccountInfo, Polling, ContractEventListener } from "@/components";
@@ -27,10 +27,10 @@ export default function App() {
     setValue(newValue);
   };
 
-  const contracts = deployedContracts[network?.chainId?.toString()][0]?.contracts;
+  // const contracts = deployedContracts[network?.chainId?.toString()][0]?.contracts;
   // To use Truffle, Uncomment the below line and comment the  line above
-  // const contracts = [deployedContracts];
-
+  const contracts = [deployedContracts];
+  console.log(contracts)
   //Here we create config to watch
   //all events of contract we ever deployed
   useEffect(() => {
@@ -38,17 +38,17 @@ export default function App() {
       let configList = [];
       for (const contract in contracts) {
         configList.push({
-          name: contract,
+          name: contracts[contract].contractName,
           abi: contracts[contract].abi,
-          address: contracts[contract].address,
+          // address: contracts[contract].address,
           // To use Truffle, Uncomment the below line and comment the above line
-          // address: contracts[contract].networks[network?.chainId?.toString()].address ?? "44787",
+          address: contracts[contract].networks[44787].address ?? "44787",
         });
       }
 
       setEventConfig(configList);
     }
-  }, [contracts]);
+  }, []);
 
   function buildTabs() {
     return Object.keys(contracts).map((contractName, key) => {

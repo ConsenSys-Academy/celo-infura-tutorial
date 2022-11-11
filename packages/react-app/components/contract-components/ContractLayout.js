@@ -44,12 +44,12 @@ export function ContractLayout({ contractName, contractData }) {
       try {
         const contract = new kit.connection.web3.eth.Contract(
           contractData.abi,
-          contractData.address
+          contractData.networks[44787].address ?? "44787"
         );
 
         setContract(contract);
       } catch (error) {
-        cnsole.log(error);
+        console.log(error);
       }
     }
   }, [contractData]);
@@ -60,9 +60,9 @@ export function ContractLayout({ contractName, contractData }) {
         {contractName} deployed at{" "}
         <a
           target="_blank"
-          href={`${network.explorer}/address/${contractData.address}`}
+          href={`${network.explorer}/address/${contractData.networks[44787].address ?? "44787"}`}
         >
-          {contractData.address}
+          {contractData.networks[44787].address ?? "44787"}
         </a>
       </h4>
       <div>
