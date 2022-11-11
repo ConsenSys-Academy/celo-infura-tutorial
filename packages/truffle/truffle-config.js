@@ -24,7 +24,7 @@ module.exports = {
       provider: () =>
         new PrivateKeyProvider(
           PRIVATE_KEY,
-          "https://alfajores-forno.celo-testnet.org"
+          "https://celo.infura.io/v3/<INFURA_PROJECT_ID>"
         ),
     },
   },
