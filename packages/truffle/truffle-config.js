@@ -24,7 +24,15 @@ module.exports = {
       provider: () =>
         new PrivateKeyProvider(
           PRIVATE_KEY,
-          "https://celo.infura.io/v3/<INFURA_PROJECT_ID>"
+          "https://celo-alfajores.infura.io/v3/<API-KEY>"
+        ),
+    },
+    celoMainnet: {
+      network_id: 42220,
+      provider: () =>
+        new PrivateKeyProvider(
+          PRIVATE_KEY,
+          "https://celo-mainnet.infura.io/v3/<API-KEY>"
         ),
     },
   },
