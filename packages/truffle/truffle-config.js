@@ -1,9 +1,8 @@
 var HDWalletProvider = require("truffle-hdwallet-provider");
 const PrivateKeyProvider = require("truffle-privatekey-provider");
-
 require("dotenv").config();
 
-const { MNEMONIC, PRIVATE_KEY } = process.env;
+// const { INFURA_API_KEY, PRIVATE_KEY } = process.env;
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
@@ -24,7 +23,7 @@ module.exports = {
       provider: () =>
         new PrivateKeyProvider(
           PRIVATE_KEY,
-          "https://celo-alfajores.infura.io/v3/<API-KEY>"
+          `https://celo-alfajores.infura.io/v3/${INFURA_API_KEY}`, 
         ),
     },
     celoMainnet: {
@@ -32,7 +31,7 @@ module.exports = {
       provider: () =>
         new PrivateKeyProvider(
           PRIVATE_KEY,
-          "https://celo-mainnet.infura.io/v3/<API-KEY>"
+          `https://celo-mainnet.infura.io/v3/${INFURA_API_KEY}`
         ),
     },
   },
