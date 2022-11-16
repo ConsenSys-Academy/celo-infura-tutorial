@@ -1,12 +1,14 @@
-Infura is excited to announce the addition of the Celo network to the Infura platform. Celo is an EVM-compatible Layer 1 built with the hope of accelerating social good through blockchain. It’s a major player in ReFi, or “Regenerative Finance,” a movement employing Web3 to solve societal issues such as climate change, income inequality and biodiversity.
+# Tutorial: Build with Infura on Ethereum-compatible Layer 1 Network Celo
 
-Since much of the world operates from their smartphone, Celo treats cellphones as first-class citizens in their network. The mobile crypto-wallet Valora was first developed within Celo before spinning out in 2021.
+Infura is excited to announce the addition of the Celo network to the [Infura platform.](https://docs.infura.io/infura/networks/ethereum) Celo is an EVM-compatible Layer 1 built with the hope of accelerating social good through blockchain. It’s a major player in ReFi, or “Regenerative Finance,” a movement employing Web3 to solve societal issues such as climate change, income inequality and biodiversity.
+
+Since much of the world operates from their smartphone, Celo treats cellphones as first-class citizens in their network. The mobile crypto-wallet [Valora](https://valoraapp.com/) was first developed within Celo before spinning out in 2021.
 
 Celo supports the above laudable goals through a number of initiatives and technical features such as:
 
-Using zero-knowledge proofs and a carbon negative Proof of Stake (PoS) consensus mechanism to lower its environmental footprint. Celo’s carbon negative PoS is achieved via daily offsets through its work with Project Wren.
-Ensuring low gas fees, which can be paid in ETH, the CELO token or any of Celo’s native stable coins, such as cUSD, cEUR or cREAL
-Prioritizing mobile-first usage through its development of the external project Valora and emphasizing mobile-optimized languages such as React, React Native and Flutter.
+- Using zero-knowledge proofs and a carbon negative Proof of Stake (PoS) consensus mechanism to lower its environmental footprint. Celo’s carbon negative PoS is achieved via daily offsets through its work with [Project Wren.](https://www.wren.co/profile/celo)
+- Ensuring low gas fees, which can be paid in ETH, the CELO token or any of Celo’s native stable coins, such as cUSD, cEUR or cREAL
+- Prioritizing mobile-first usage through its development of the external project Valora and emphasizing mobile-optimized languages such as React, React Native and Flutter.
 
 All of these features make Celo attractive for those looking to use blockchain for good. Are you ready to build on it? In this tutorial, we’re going to show you how easy it is to get started with Celo Composer using Infura and Truffle. By the end of this article, you will be able to deploy a smart contract to the Celo testnet and build a React dapp frontend.
 
@@ -23,14 +25,14 @@ All of these features make Celo attractive for those looking to use blockchain f
 
 ## Prerequisites
 Before getting started, make sure that you have all the necessary snacks for this wicked-cool roadtrip:
-- An Infura account
-- `node` & `npm` installed (in this guide → v16.xx.x)
+- [An Infura account](https://docs.infura.io/infura/getting-started)
+- [`node & npm`](https://nodejs.org/en/download/) installed (in this guide → v16.xx.x)
 - Your favorite IDE
 
 ## Getting started
 ## Create a new Web3 access key with Celo endpoints
 
-We will start with creating a new Infura Web3 access key (previously, project ID) with Celo endpoints enabled. This key will be used by our application to execute transactions against the Celo network. Here’s how to do that with Infura (or follow this Getting Started guide):
+We will start with creating a new Infura Web3 access key (previously, project ID) with Celo endpoints enabled. This key will be used by our application to execute transactions against the Celo network. Here’s how to do that with Infura (or follow [this Getting Started guide](https://docs.infura.io/infura/getting-started#2.-create-a-project)):
 
 - Log in to the Infura main page
 - Click on the button on the right-hand side - Create new key
@@ -48,26 +50,26 @@ Note this down, as this is going to be useful further ahead on this tutorial.
 
 
 ## Celo Composer
-Celo Composer provides easy templates to get started with development. You can use Celo Composer by following the steps in the Readme. 
+[Celo Composer](https://github.com/celo-org/celo-composer) provides easy templates to get started with development. You can use Celo Composer by following the steps in the Readme. 
 
 To use Truffle, there’s a bit of tweaking that you have to do. You have two options:
 
-1. You can either clone the original repo and uncomment out the Truffle lines (here, here, and here) 
+1. You can either [clone the original repo](https://github.com/celo-org/celo-composer) and uncomment out the Truffle lines ([here,](https://github.com/celo-org/celo-composer/blob/a92d2bfab89faacb0c1a7ab993265985d5eed884/packages/react-app/pages/index.tsx#L5) [here,](https://github.com/celo-org/celo-composer/blob/a92d2bfab89faacb0c1a7ab993265985d5eed884/packages/react-app/pages/index.tsx#L31) and [here)](https://github.com/celo-org/celo-composer/blob/a92d2bfab89faacb0c1a7ab993265985d5eed884/packages/react-app/pages/index.tsx#L45) 
 or,
 
-2. You can fork a repository where we’ve taken care of that for you:
+2. [You can fork a repository where we’ve taken care of that for you:](https://github.com/ConsenSys-Academy/celo-infura-tutorial)
 
 `Git clone http://www.github.com/cooganb/celo-infura-truffle`
 
 ## Testnet Funds
 
-We’ll need some testfunds from Alfajores, Celo’s testnet. Grab your nearest MetaMask developer account and claim some free fun money. (The testnet site will add Alfajores to your MetaMask account if you allow it. If for some reason you don’t get prompted, check out Chainlist.)
+We’ll need some testfunds from Alfajores, Celo’s testnet. Grab your nearest MetaMask developer account and [claim some free fun money.](https://celo.org/developers/faucet) (The testnet site will add Alfajores to your MetaMask account if you allow it. If for some reason you don’t get prompted, check out [Chainlist.](https://chainlist.org/chain/44787))
 
 ## Deploying the Contract
 Now that we’ve got some funds to work with, let’s deploy our contract to Celo’s testnet. We’ll do it two different ways. First, we’ll use Infura and Truffle command line deployment. Next, we’ll use Truffle Dashboards with a custom Infura add-on.
 ## Command Line Deployment
 
-For this demo, we’re going to be compiling a basic Greeter contract to Celo that’s already been written and prepared. We’re using Truffle to compile contracts. Make sure you have Truffle installed and then run the following commands:
+For this demo, we’re going to be compiling a basic Greeter contract to Celo that’s already been written and prepared. We’re using Truffle to compile contracts. [Make sure you have Truffle installed](https://trufflesuite.com/docs/truffle/how-to/install/) and then run the following commands:
 
 ```
 Cd packages/truffle
@@ -77,7 +79,7 @@ Truffle compile
 
 For contract deployment, we need to create and add our private key that has our Celo testnet funds to an .env file in the Truffle directory. 
 
-You’ll also need to add your Infura account information to the truffle-config file. Fill that in here; it’s also shown below:
+You’ll also need to add your Infura account information to the truffle-config file. [Fill that in here;](https://github.com/ConsenSys-Academy/infura-test/blob/main/packages/truffle/truffle-config.js#L21) it’s also shown below:
 
 ```javascript
  networks: {
@@ -154,6 +156,6 @@ From here, you can read or set the value `greet` from our contract. Give it a tr
 ## Conclusion
 This is just the beginning of what’s possible on Celo with celo-composer. If you want to build something with the template, use `npx @celo/celo-composer` and select the `react-with-tailwind` template. Celo-composer also has support for more mobile-first languages, such as Flutter and React Native. 
 
-Celo also has an exciting new feature coming out soon called SocialConnect, an “open source protocol for creating attestations mapping off-chain identifiers” such as cell phone numbers, Twitter accounts or e-mail addresses.” It allows Celo users to send money to those identifiers, even if the users behind those accounts do not have a Celo account yet. Once they login and claim the identifier, they can claim the funds. It’s an innovative approach that could have an enormous impact on the remittance industry, since people could use SocialConnect to send funds in stablecoins to friends and relatives.
+Celo also has an exciting new feature coming out soon called [SocialConnect,](https://github.com/celo-org/identity/tree/ASv2/asv2) an “open source protocol for creating attestations mapping off-chain identifiers” such as cell phone numbers, Twitter accounts or e-mail addresses.” It allows Celo users to send money to those identifiers, even if the users behind those accounts do not have a Celo account yet. Once they login and claim the identifier, they can claim the funds. It’s an innovative approach that could have an enormous impact on the remittance industry, since people could use SocialConnect to send funds in stablecoins to friends and relatives.
 
 All this speaks to the focus of cLabs, Celo Foundation and the Celo protocol to bring the efficiencies, inclusiveness and other benefits of blockchain to the places most in need of financial and environmental assistance. Infura is excited to join with Celo in these efforts.
