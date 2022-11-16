@@ -24,7 +24,7 @@ module.exports = {
         new PrivateKeyProvider(
           PRIVATE_KEY,
           `https://celo-alfajores.infura.io/v3/${INFURA_API_KEY}`, 
-        ),
+        ),5d64b4ab7dcc41e0b36ba0d21c4cda51
     },
     celoMainnet: {
       network_id: 42220,
